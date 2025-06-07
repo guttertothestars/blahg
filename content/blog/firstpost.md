@@ -1,25 +1,15 @@
 ---
 title: This is my first post.
-description: This is a post on My Blog about agile frameworks.
-date: 2018-05-01
-tags: another tag
+description: Welcome to my blog about The Wire
+date: 2035-06-07
+tags: [otw, linux, cli]
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+No, not that wire (although [The Wire](https://en.wikipedia.org/wiki/The_Wire) is excellent). I'm talking about [Over the Wire](https://overthewire.org/wargames/). I find myself wanting to come to terms with the tools that make modern life possible and suspect that working through these will be step towards that.  
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+Maybe it's my version of a midlife crisis, and in an earlier time I would've picked up woodworking, or something. I'll start with [bandit](https://overthewire.org/wargames/bandit/) and I'll follow the [rules](https://overthewire.org/rules/) During the process I'll try and write about my thought process as I attempt to solve each challenge.
 
-## Section Header
+# Meta Commentary
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+In keeping with the 'teach-thyself' I'm hosting this blog on [Neocites](https://neocities.org/) (and may even pay for it one day, full-time-employment willing!) and cribbing shamelessly from Zach Leatherman's [11ty base blog](https://github.com/11ty/eleventy-base-blog). Hopefully, as time passes, less and less will be stock as I get my bearings. A lot has changed since I built my first website on Geocities.
 
-```diff-js
- // this is a command
- function myCommand() {
-+  let counter = 0;
--  let counter = 1;
-   counter++;
- }
-
- // Test with a line break above this line.
- console.log('Test');
-```
+-Walker
