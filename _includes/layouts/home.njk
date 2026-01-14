@@ -1,6 +1,14 @@
 ---
 layout: layouts/base.njk
 ---
-
+<!-- Delete this block, which will also remove the component CSS from the bundle -->
+<style>{% include "css/message-box.css" %}</style>
+<div class="message-box">
+	<blockquote>
+		<i>"Hello my friend, stay a while and listen."</i>
+	</blockquote>
+	
+</div>
+<!-- Stop deleting -->
 
 {{ content | safe }}

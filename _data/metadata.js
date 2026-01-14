@@ -1,5 +1,5 @@
 export default {
-	title: "Tripping on the Wire",
+	title: "Tripping Over the Wire",
 	url: "https://guttertothestars.neocities.org/",
 	language: "en",
 	description: "I am writing about my experiences trying to learn to use modern technological tools, and build with them.",

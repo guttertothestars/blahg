@@ -1,16 +1,19 @@
 ---
-title: This is my second post with a much longer title.
-description: This is a post on My Blog about leveraging agile frameworks.
-date: 2018-07-04
-tags: number 2
+title: Bandit Level Zero
+description: Over the Wire Bandit walkthroughs. No credentials.
+date: 2025-06-07
+#tags: ["Over the Wire", linux, CLI, Bandit]
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+# Level Goal
+[Level 0](https://overthewire.org/wargames/bandit/bandit0.html "What better place than here, what better time than now?") 
 
-## Section Header
+The goal for this level is for you to log into the game using SSH. The host to which you need to connect is bandit.labs.overthewire.org, on port 2220. The username is bandit0 and the password is bandit0. Once logged in, go to the Level 1 page to find out how to beat Level 1.
 
-<a href="/blog/firstpost.md">First post</a>
-<a href="blog/thirdpost.md">Third post</a>
+Commands you may need to solve this level:
+`ssh`
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+# Thought Process
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+Fortunately i'm passingly familiar with `ssh` from the command line. But, I am a bit rusty on how to assign the right port, since `ssh` defaults to port 22. Fortunately I can use `man <command>` to see the manual for any given command. These aren't always the most riveting reading, but I always learn something.
+
+From the manual it looks like running `ssh -p <port> <username>@<domain>` should do the trick.

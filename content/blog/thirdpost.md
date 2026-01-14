@@ -1,43 +1,19 @@
 ---
-title: This is my third post.
-description: This is a post on My Blog about win-win survival strategies.
-date: 2018-08-24
-tags: ["second tag", "posts with two tags"]
+title: Bandit Level 0 → Level 1
+description: Over the Wire Bandit walkthroughs. No credentials.
+date: 2025-06-08
+#tags: ["Over the Wire", Linux, CLI, Bandit ]
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+# Level Goal
+[Level 0 → Level 1](https://overthewire.org/wargames/bandit/bandit1.html "The files are inside the computer")
 
-## Code
+ Level Goal
 
-### This is a very long heading that I want to wrap This is a very long heading that I want to wrap This is a very long heading that I want to wrap This is a very long heading that I want to wrap
+The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.
+Commands you may need to solve this level
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+ls , cd , cat , file , du , find
 
-```js
-// this is a command
-function myCommand() {
-	let counter = 0;
-	counter++;
-}
+# Thought Process
 
-// Test with a line break above this line.
-console.log('Test');
-```
-
-### Heading with a [link](#code)
-
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
-
-```
-// this is a command
-function myCommand() {
-	let counter = 0;
-	counter++;
-}
-
-// Test with a line break above this line.
-console.log('Test');
-```
-
-## Section Header
-
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+`ls` is one of those commands I run constanttly and immediately, Usually after `pwd` if my prompt doesn't show me. Where am I and what else is here? `ls` shows me that there is one file in my current directory, called `readme`. `cat readme` prints the file contents to the terminal, showing the password. No need to check out `file`, `du`, or `find` yet, but I'm sure they'll come up soon.  
