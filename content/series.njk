@@ -1,0 +1,17 @@
+---js
+const eleventyNavigation = { key: "Series", order: 2 };
+const bare = true;
+---
+<h1>Series</h1>
+<p>Multi-part projects, read in order.</p>
+
+<div class="window-grid">
+{%- for s in seriesList %}
+	{%- set posts = collections[s.key] or [] %}
+	<a class="window window-link" href="/series/{{ s.key }}/">
+		<p class="window-title">{{ s.title }}</p>
+		<p>{{ s.blurb }}</p>
+		<p class="window-stat">{{ posts | length }} posts{% if posts | length %} · latest {{ (posts | last).date | readableDate("LLL yyyy") }}{% endif %}</p>
+	</a>
+{%- endfor %}
+</div>

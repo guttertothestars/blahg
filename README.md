@@ -1,117 +1,70 @@
-# eleventy-base-blog v9
+# GutterToTheStars: operating instructions
 
-A starter repository showing how to build a blog with the [Eleventy](https://www.11ty.dev/) site generator (using the [v3.0 release](https://github.com/11ty/eleventy/releases/tag/v3.0.0)).
+Note to future me. Eleventy blog, hosted at https://guttertothestars.neocities.org.
+The repo is `github.com/guttertothestars/blahg`. Run every command from `~/projects/blahg`.
 
-## Getting Started
+## Write a post
 
-* [Want a more generic/detailed getting started guide?](https://www.11ty.dev/docs/getting-started/)
-
-1. Make a directory and navigate to it:
-
-```
-mkdir my-blog-name
-cd my-blog-name
-```
-
-2. Clone this Repository
-
-```
-git clone https://github.com/11ty/eleventy-base-blog.git .
+```bash
+cd ~/projects/blahg
+git pull                                                      # in case I edited from somewhere else
+npm run new -- "Post title"                                   # one-off, shows up under Notes
+npm run new -- "Bandit Level 9 → 10" --series over-the-wire   # series post
+npm run new -- "Post with pictures" --folder                  # gets its own folder; put images next to the .md
+npm start                                                     # preview at http://localhost:8080 (drafts show here)
 ```
 
-_Optional:_ Review `eleventy.config.js` and `_data/metadata.js` to configure the site’s options and data.
+The command prints the path of the new file. Open it, fill in `description:` and `tags:`, and write.
+New posts start as `draft: true`. Drafts show in `npm start` but never get published.
 
-3. Install dependencies
+- **Tags:** lowercase, e.g. `tags: [linux, networking]`. Don't add `over-the-wire`, the series folder adds it.
+- **Images:** use the `--folder` version, drop the image beside the `.md`, and reference it with
+  `<img src="./thing.png" alt="describe it">`. Always write alt text.
+- **Code:** put it in fenced blocks with a language, e.g. ```` ```bash ````.
 
-```
-npm install
-```
+## Publish
 
-4. Run Eleventy
+1. Delete the `draft: true` line.
+2. Then:
 
-Generate a production-ready build to the `_site` folder:
-
-```
-npx @11ty/eleventy
-```
-
-Or build and host on a local development server:
-
-```
-npx @11ty/eleventy --serve
+```bash
+npm run deploy:check      # dry run: lists what would upload or delete, changes nothing
+npm run deploy            # does it for real
+git add -A && git commit -m "Post: <title>" && git push
 ```
 
-Or you can run [debug mode](https://www.11ty.dev/docs/debugging/) to see all the internals.
+3. Hard-refresh the site with Ctrl+Shift+R.
 
-## Features
+## Where things live
 
-- Using [Eleventy v3](https://github.com/11ty/eleventy/releases/tag/v3.0.0) with zero-JavaScript output.
-	- Content is exclusively pre-rendered (this is a static site).
-	- Can easily [deploy to a subfolder without changing any content](https://www.11ty.dev/docs/plugins/html-base/)
-	- All URLs are decoupled from the content’s location on the file system.
-	- Configure templates via the [Eleventy Data Cascade](https://www.11ty.dev/docs/data-cascade/)
-- **Performance focused**: four-hundos Lighthouse score out of the box!
-	- _0 Cumulative Layout Shift_
-	- _0ms Total Blocking Time_
-- Local development live reload provided by [Eleventy Dev Server](https://www.11ty.dev/docs/dev-server/).
-- Content-driven [navigation menu](https://www.11ty.dev/docs/plugins/navigation/)
-- Fully automated [Image optimization](https://www.11ty.dev/docs/plugins/image/)
-	- Zero-JavaScript output.
-	- Support for modern image formats automatically (e.g. AVIF and WebP)
-	- Processes images on-request during `--serve` for speedy local builds.
-	- Prefers `<img>` markup if possible (single image format) but switches automatically to `<picture>` for multiple image formats.
-	- Automated `<picture>` syntax markup with `srcset` and optional `sizes`
-	- Includes `width`/`height` attributes to avoid [content layout shift](https://web.dev/cls/).
-	- Includes `loading="lazy"` for native lazy loading without JavaScript.
-	- Includes [`decoding="async"`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decoding)
-	- Images can be co-located with blog post files.
-- Per page CSS bundles [via `eleventy-plugin-bundle`](https://github.com/11ty/eleventy-plugin-bundle).
-- Built-in [syntax highlighter](https://www.11ty.dev/docs/plugins/syntaxhighlight/) (zero-JavaScript output).
-- Draft content: use `draft: true` to mark any template as a draft. Drafts are **only** included during `--serve`/`--watch` and are excluded from full builds. This is driven by the `addPreprocessor` configuration API in `eleventy.config.js`. Schema validator will show an error if non-boolean value is set in data cascade.
-- Blog Posts
-	- Automated next/previous links
-	- Accessible deep links to headings
-- Generated Pages
-	- Home, Archive, and About pages.
-	- [Atom feed included (with easy one-line swap to use RSS or JSON](https://www.11ty.dev/docs/plugins/rss/)
-	- `sitemap.xml`
-	- Zero-maintenance tag pages ([View on the Demo](https://eleventy-base-blog.netlify.app/tags/))
-	- Content not found (404) page
+| Thing | File |
+|---|---|
+| Site name, description, footer contact info | `_data/metadata.js` |
+| List of series (name, blurb) | `_data/seriesList.js` |
+| Posts | `content/blog/` (one-offs) and `content/blog/<series>/` |
+| Colors, fonts, the look | `css/index.css` (colors are variables at the top) |
+| Page frame, header, footer | `_includes/layouts/base.njk` |
+| Post page layout | `_includes/layouts/post.njk` |
+| About page | `content/about.md` |
 
-## Demos
+## Start a new series
 
-- [Netlify](https://eleventy-base-blog.netlify.app/)
-- [Vercel](https://demo-base-blog.11ty.dev/)
-- [Cloudflare Pages](https://eleventy-base-blog-d2a.pages.dev/)
-- [Remix on Glitch](https://glitch.com/~11ty-eleventy-base-blog)
-- [GitHub Pages](https://11ty.github.io/eleventy-base-blog/)
+1. `mkdir content/blog/<key>`. The key is lowercase-with-dashes, e.g. `homelab`.
+2. Copy `content/blog/over-the-wire/over-the-wire.11tydata.js` to `content/blog/<key>/<key>.11tydata.js`,
+   then change `tags`, `series` (display name) and `seriesKey` to match the new series.
+3. Add an entry to `_data/seriesList.js` with the same `key`.
+4. `npm run new -- "First post" --series <key>`
 
-## Deploy this to your own site
+## When it breaks
 
-Deploy this Eleventy site in just a few clicks on these services:
-
-- Read more about [Deploying an Eleventy project](https://www.11ty.dev/docs/deployment/) to the web.
-- [Deploy this to **Netlify**](https://app.netlify.com/start/deploy?repository=https://github.com/11ty/eleventy-base-blog)
-- [Deploy this to **Vercel**](https://vercel.com/import/project?template=11ty%2Feleventy-base-blog)
-- Look in `.github/workflows/gh-pages.yml.sample` for information on [Deploying to **GitHub Pages**](https://www.11ty.dev/docs/deployment/#deploy-an-eleventy-project-to-git-hub-pages).
-- [Try it out on **Stackblitz**](https://stackblitz.com/github/11ty/eleventy-base-blog)
-
-### Implementation Notes
-
-- `content/about/index.md` is an example of a content page.
-- `content/blog/` has the blog posts but really they can live in any directory. They need only the `posts` tag to be included in the blog posts [collection](https://www.11ty.dev/docs/collections/).
-- Use the `eleventyNavigation` key (via the [Eleventy Navigation plugin](https://www.11ty.dev/docs/plugins/navigation/)) in your front matter to add a template to the top level site navigation. This is in use on `content/index.njk` and `content/about/index.md`.
-- Content can be in _any template format_ (blog posts needn’t exclusively be markdown, for example). Configure your project’s supported templates in `eleventy.config.js` -> `templateFormats`.
-- The `public` folder in your input directory will be copied to the output folder (via `addPassthroughCopy` in the `eleventy.config.js` file). This means `./public/css/*` will live at `./_site/css/*` after your build completes.
-- This project uses three [Eleventy Layouts](https://www.11ty.dev/docs/layouts/):
-	- `_includes/layouts/base.njk`: the top level HTML structure
-	- `_includes/layouts/home.njk`: the home page template (wrapped into `base.njk`)
-	- `_includes/layouts/post.njk`: the blog post template (wrapped into `base.njk`)
-- `_includes/postslist.njk` is a Nunjucks include and is a reusable component used to display a list of all the posts. `content/index.njk` has an example of how to use it.
-
-#### Content Security Policy
-
-If your site enforces a [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) (as public-facing sites should), you have a few choices (pick one):
-
-1. In `base.njk`, remove `<style>{% getBundle "css" %}</style>` and uncomment `<link rel="stylesheet" href="{% getBundleFileUrl "css" %}">`
-2. Configure the server with the CSP directive `style-src: 'unsafe-inline'` (less secure).
+- **`DuplicatePermalinkOutputError`:** two tags differ only in case (`Linux` vs `linux`).
+  Find them with `grep -rn '^tags:' content/blog`.
+- **"Identifier ... has already been declared":** a line got pasted twice in `eleventy.config.js`.
+- **`neocities: command not found`:** run `gem install --user-install neocities` and check that
+  Ruby's gem bin folder is on PATH (see `~/.bashrc`).
+- **Neocities asks for an API key:** get one at neocities.org/settings. It's saved in `~/.config/neocities/config.json`.
+- **`sitemap.xml` refused:** expected. Neocities makes its own sitemap, so don't add one back.
+- **Deploy wants to delete something I care about:** stop, don't run `npm run deploy`.
+  `--prune` deletes anything on Neocities that isn't in the fresh build.
+- **Weird old pages hanging around locally:** `rm -rf _site` and run it again. `npm run build` already does this.
+- **Upstream template updates:** the original 11ty starter is the `upstream` remote. You don't need it to blog. Ignore it.

@@ -1,0 +1,8 @@
+---js
+const eleventyNavigation = { key: "Notes", order: 3 };
+---
+<h1>Notes</h1>
+<p>One-off posts: things I figured out, broke, or fixed.</p>
+
+{% set postslist = collections.notes %}
+{% include "postslist.njk" %}

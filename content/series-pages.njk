@@ -1,0 +1,22 @@
+---js
+// One page per entry in _data/series.js, at /series/<key>/
+const pagination = { data: "seriesList", size: 1, alias: "s" };
+const eleventyExcludeFromCollections = true;
+const eleventyComputed = {
+	title: (data) => data.s.title,
+	permalink: (data) => `/series/${data.s.key}/`,
+};
+---
+<p class="breadcrumb"><a href="/series/">Series</a></p>
+<h1>{{ s.title }}</h1>
+<p>{{ s.blurb }}{% if s.link %} <a href="{{ s.link }}">Visit the source</a>.{% endif %}</p>
+
+{# Series read oldest-first #}
+<ol class="postlist postlist-ordered">
+{%- for post in collections[s.key] %}
+	<li class="postlist-item">
+		<a href="{{ post.url }}" class="postlist-link">{{ post.data.title }}</a>
+		<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate("dd LLL yyyy") }}</time>
+	</li>
+{%- endfor %}
+</ol>
