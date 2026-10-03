@@ -1,29 +1,29 @@
 ---js
-const eleventyNavigation = {
-	key: "Home",
-	order: 1
-};
-
-const numberOfLatestPostsToShow = 3;
+const eleventyNavigation = { key: "Home", order: 1 };
+const numberOfLatestPostsToShow = 5;
 ---
-{% set postsCount = collections.posts | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
+<section class="window">
+	<h1>Latest</h1>
+	{% set postsCount = collections.posts | length %}
+	{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
+	{% set postslistCounter = postsCount %}
+	{% include "postslist.njk" %}
+	<p class="window-more"><a href="blog.njk">All {{ postsCount }} posts</a></p>
+</section>
 
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
-
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
-{% endif %}
-
-{# List every content page in the project #}
-{#
-<ul>
-	{%- for entry in collections.all %}
-	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
+<section>
+	<h2>Browse</h2>
+	<div class="window-grid">
+	{%- for s in seriesList %}
+		{%- set posts = collections[s.key] or [] %}
+		<a class="window window-link" href="/series/{{ s.key }}/">
+			<p class="window-title">{{ s.title }}</p>
+			<p class="window-stat">{{ posts | length }} posts</p>
+		</a>
 	{%- endfor %}
-</ul>
-#}
+		<a class="window window-link" href="/notes/">
+			<p class="window-title">Notes</p>
+			<p class="window-stat">{{ collections.notes | length }} one-off{% if collections.notes | length != 1 %}s{% endif %}</p>
+		</a>
+	</div>
+</section>

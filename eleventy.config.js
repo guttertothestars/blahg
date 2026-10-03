@@ -62,12 +62,6 @@ export default async function(eleventyConfig) {
 		type: "atom", // or "rss", "json"
 		outputPath: "/feed/feed.xml",
 		stylesheet: "pretty-atom-feed.xsl",
-		templateData: {
-			eleventyNavigation: {
-				key: "Feed",
-				order: 6
-			}
-		},
 		collection: {
 			name: "posts",
 			limit: 10,
@@ -101,7 +95,11 @@ export default async function(eleventyConfig) {
 			animated: true,
 		},
 	});
-
+	// "notes" = every post that isn't part of a series
+	eleventyConfig.addCollection("notes", (collectionApi) =>
+		collectionApi.getFilteredByTag("posts").filter((post) => !post.data.series)
+	);
+	
 	// Filters
 	eleventyConfig.addPlugin(pluginFilters);
 

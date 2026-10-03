@@ -3,7 +3,8 @@
 // tagged ["posts", "over-the-wire", ...whatever the post itself adds].
 export default {
 	tags: ["over-the-wire"],
-	series: "Over the Wire",
+	series: "Tripping Over the Wire",
+	seriesKey: "over-the-wire",
 	// Keep the original /blog/<name>/ URLs from before the move to this folder
 	permalink: "/blog/{{ page.fileSlug }}/",
 };
