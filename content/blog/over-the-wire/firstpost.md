@@ -1,8 +1,8 @@
 ---
 title: Hello, world. Welcome to my blog about The Wire.
 description: Over the Wire Bandit walkthroughs. No credentials.
-date: 2035-06-07
-#tags: ["Over the Wire", Linux, CLI, Bandit]
+date: 2025-06-07
+tags: [meta]
 ---
 No, not that wire (although [The Wire](https://en.wikipedia.org/wiki/The_Wire) is excellent). I'm talking about [Over the Wire](https://overthewire.org/wargames/). I find myself wanting to come to terms with the tools that make modern life possible and suspect that working through these will be step towards that.  
 

@@ -2,7 +2,7 @@
 title: Bandit Level 5 → 6
 description: Over the Wire Bandit walkthroughs. No credentials.
 date: 2025-07-08
-#tags: ["Over the Wire", linux, CLI, Bandit]
+tags: [linux, cli, find]
 ---
 # Level Goal
 [Level 5 → 6](https://overthewire.org/wargames/bandit/bandit6.html ) 

@@ -2,7 +2,7 @@
 title: Bandit Level 1 → Level 2
 description: Over the Wire Bandit walkthroughs. No credentials.
 date: 2025-06-13
-#tags: second tag
+tags: [linux, cli, man]
 ---
 Friday the 13th. Always a lucky day for me. I proposed to my wife on a Friday the 13th. 
 

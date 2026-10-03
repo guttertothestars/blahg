@@ -2,7 +2,7 @@
 title: Bandit Level Zero
 description: Over the Wire Bandit walkthroughs. No credentials.
 date: 2025-06-07
-#tags: ["Over the Wire", linux, CLI, Bandit]
+tags: [linux, cli, ssh]
 ---
 # Level Goal
 [Level 0](https://overthewire.org/wargames/bandit/bandit0.html "What better place than here, what better time than now?") 

@@ -2,7 +2,7 @@
 title: Bandit Level 3 → Level 4
 description: Over the Wire Bandit walkthroughs. No credentials.
 date: 2025-06-25
-#tags: second tag
+tags: [linux, cli]
 ---
 
 # Level Goal

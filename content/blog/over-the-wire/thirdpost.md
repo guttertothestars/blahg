@@ -2,7 +2,7 @@
 title: Bandit Level 0 → Level 1
 description: Over the Wire Bandit walkthroughs. No credentials.
 date: 2025-06-08
-#tags: ["Over the Wire", Linux, CLI, Bandit ]
+tags: [linux, cli]
 ---
 # Level Goal
 [Level 0 → Level 1](https://overthewire.org/wargames/bandit/bandit1.html "The files are inside the computer")

@@ -296,3 +296,4 @@ header {
 	margin-right: 1em;
 }
 
+.postlist-series { font-size: .8125em; color: var(--color-gray-90); border: 1px solid currentColor; border-radius: .25em; padding: 0 .35em; }

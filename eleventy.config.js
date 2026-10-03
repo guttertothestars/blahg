@@ -6,6 +6,8 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 import pluginFilters from "./_config/filters.js";
 
+import metadata from "./_data/metadata.js";
+
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
 	// Drafts, see also _data/eleventyDataSchema.js
@@ -63,7 +65,7 @@ export default async function(eleventyConfig) {
 		templateData: {
 			eleventyNavigation: {
 				key: "Feed",
-				order: 4
+				order: 6
 			}
 		},
 		collection: {
@@ -71,13 +73,11 @@ export default async function(eleventyConfig) {
 			limit: 10,
 		},
 		metadata: {
-			language: "en",
-			title: "Blog Title",
-			subtitle: "This is a longer description about your blog.",
-			base: "https://example.com/",
-			author: {
-				name: "Your Name"
-			}
+			language: metadata.language,
+			title: metadata.title,
+			subtitle: metadata.description,
+			base: metadata.url,
+			author: { name: metadata.author.name }
 		}
 	});
 
