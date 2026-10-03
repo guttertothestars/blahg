@@ -1,11 +1,12 @@
 export default {
-	title: "Tripping Over the Wire",
+	title: "GutterToTheStars",
 	url: "https://guttertothestars.neocities.org/",
 	language: "en",
-	description: "I am writing about my experiences trying to learn to use modern technological tools, and build with them.",
+	description: "Notes from a reformed bike mechanic learning the tools that run modern life: Linux, networking, virtualization, and whatever breaks next.",
 	author: {
-		name: "Walker",
-		email: "wwilkson@gmail.com",
-		url: "https://www.linkedin.com/in/wwilkson/"
+		name: "Walker Wilkson",
+		email: "57953822+guttertothestars@users.noreply.github.com",
+		url: "https://www.linkedin.com/in/wwilkson/",
+		github: "https://github.com/guttertothestars"
 	}
 }

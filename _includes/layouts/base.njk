@@ -63,10 +63,9 @@
 		</main>
 
 		<footer>
-			<p>
-				<em>Built with <a href="https://www.11ty.dev/">{{ eleventy.generator }}</a></em>
-			</p>
-		</footer>
+	<p>{{ metadata.author.name }} · <a href="{{ metadata.author.url }}">LinkedIn</a> · <a href="{{ metadata.author.github }}">GitHub</a> · <a href="mailto:{{ metadata.author.email }}">Email</a></p>
+	<p><a href="/feed/feed.xml">Feed</a> · Built with <a href="https://www.11ty.dev/">Eleventy</a> · Hosted on <a href="https://neocities.org/">Neocities</a></p>
+</footer>
 
 		<!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
 		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
