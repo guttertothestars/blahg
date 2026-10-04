@@ -395,3 +395,9 @@ footer {
 	.links-nextprev { flex-direction: column; }
 	.links-nextprev-next { text-align: left; }
 }
+
+/* Wrapper for embeds (GIFs, videos): narrower, centered, with room around it */
+.embed {
+	max-width: 22rem;
+	margin: 2rem auto;
+}
