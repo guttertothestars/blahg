@@ -1,14 +1,14 @@
 ---
 title: "Elizabeth Holmes Didn’t Believe in Backup Plans Either"
-description: ""
+description: "How I learned to stop worrying and love the backup"
 date: 2026-10-24
-tags: [backups, failure, FOSS, 2fa]
+tags: [backups, failure, foss, 2fa]
 ---
 > "The minute that you have a backup plan, you've admitted that you're not going to succeed."
 >
 > Elizabeth Holmes
 
-# My Phone Died, Mostly
+## My Phone Died, Mostly
 
 My iPhone 13 mini's screen died last week. The phone itself didn't. It still buzzes. Still holds every one of my two-factor codes trapped inside on various authenticator apps. 
 
@@ -42,7 +42,7 @@ The first sync fails with "Permission to access files not found" and a Java stac
 
 **Phone to laptop.** Syncthing copies the phone's photos, pictures, documents and recordings to my laptop over Wi-Fi. Think Dropbox, minus Dropbox. The phone only sends and the laptop only receives, so there's no backwash. Deleted files on the phone get held in a versions folder on the laptop for 30 days, so something I take Monday and delete Tuesday still makes it into the weekly backup.
 
-Small gotchas: Syncthing-Fork needs a file manager that supports its folder picker, and Motorola's built-in Files app doesn't. Material Files from F-Droid does. And two of my folders show "Unshared" because, well, I never shared them. [[KEEP. last sentence is good]]
+Small gotchas: Syncthing-Fork needs a file manager that supports its folder picker, and Motorola's built-in Files app doesn't. Material Files from F-Droid does. And two of my folders show "Unshared" because, well, I never shared them.
 
 **Laptop to a drive in a drawer.** I have a 1TB Toshiba external drive. Reformat as ext4, label it BACKUP, and set up BorgBackup driven by borgmatic. Borg takes a full snapshot every time but only stores what changed, encrypted, so I get weekly, monthly and yearly history without the drive filling up.
 
@@ -54,4 +54,4 @@ First real run: 110.84 GB of home folder, stored as 58.29 GB, 305,427 files, abo
 
 Now: if this phone dies tomorrow, I install Aegis, import a file, type a password, and I'm back. 
 
-I can't remember where I read it or who said it but the idea that true deep learning comes after really getting burned by something. Probably a lot people. It was true for me. I knew better but I was lazy. I needed that deep, sinking sensation of knowing down to the bone that I was up a creek with no one to blame but myself to really internalize the object lesson; I'm not going to succeed and I admit it. That's okay if I have a backup or three. If 2 is 1 and 1 is none than what I was doing was truly dumb.
+I can't remember where I read it or who said it but the idea that true deep learning comes after really getting burned by something. Probably a lot of people. It was true for me. I knew better but I was lazy. I needed that deep, sinking sensation of knowing down to the bone that I was up a creek with no one to blame but myself to really internalize the object lesson; I'm not going to succeed and I admit it. That's okay if I have a backup or three. If 2 is 1 and 1 is none then what I was doing was truly dumb.
